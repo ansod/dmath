@@ -3,7 +3,12 @@ package dmath
 // Takes the supposed superset and subset
 // and returns whether it is correct.
 func IsSubset(superset, subset []int) bool {
-
+    for _, val := range subset {
+        if !sliceContains(val, superset) {
+            return false
+        }
+    }
+    return true
 }
 
 // Returns the union of an arbitrary
