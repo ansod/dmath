@@ -4,7 +4,21 @@ package dmath
 // and returns whether it is correct.
 func IsSubset(superset, subset []int) bool {
     for _, val := range subset {
-        if !sliceContains(val, superset) {
+        if !Contains(val, superset) {
+            return false
+        }
+    }
+    return true
+}
+
+// Compares to sets(slices) and returns
+// whether they are identical or not
+func IsEqual(s1, s2 []int) bool {
+
+    if len(s1) != len(s2) {return false}
+
+    for _, val := range s1 {
+        if !Contains(val, s2) {
             return false
         }
     }
@@ -19,7 +33,7 @@ func Union(sets ...[]int) []int {
     if len(sets) > 0 {
         for _, set := range sets {
             for _, val := range set {
-                if !sliceContains(val, s) {
+                if !Contains(val, s) {
                     s = append(s, val)
                 }
             }
@@ -37,7 +51,7 @@ func Intersection(sets ...[]int) []int {
         for _, val := range set {
             occurrences := 0
             for _, set2 := range sets {
-                if sliceContains(val, set2) && !sliceContains(val, s){
+                if Contains(val, set2) && !Contains(val, s){
                     occurrences++
                 }
             }
@@ -51,7 +65,7 @@ func Intersection(sets ...[]int) []int {
 
 // Returns whether set(slice) contains a
 // certain number
-func sliceContains(i int, set []int) bool {
+func Contains(i int, set []int) bool {
     for _, v := range set {
         if v == i {
             return true
