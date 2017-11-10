@@ -1,6 +1,13 @@
 package dmath
 
+// Takes the supposed superset and subset
+// and returns whether it is correct.
+func IsSubset(superset, subset []int) bool {
 
+}
+
+// Returns the union of an arbitrary
+// number of sets(slices).
 func Union(sets ...[]int) []int {
     var s []int
 
@@ -16,7 +23,8 @@ func Union(sets ...[]int) []int {
     return s
 }
 
-
+// Returns the intersection of an arbitrary
+// number of sets(slices).
 func Intersection(sets ...[]int) []int {
     var s []int
 
@@ -36,6 +44,8 @@ func Intersection(sets ...[]int) []int {
     return s
 }
 
+// Returns whether set(slice) contains a
+// certain number
 func sliceContains(i int, set []int) bool {
     for _, v := range set {
         if v == i {
