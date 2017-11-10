@@ -63,6 +63,17 @@ func Intersection(sets ...[]int) []int {
     return s
 }
 
+// Returns the complement between sets s1 and s2
+func Complement(s1, s2 []int) []int {
+    var s []int
+    for _, val := range s1 {
+        if !Contains(val, s2) {
+            s = append(s, val)
+        }
+    }
+    return s
+}
+
 // Returns whether set(slice) contains a
 // certain number
 func Contains(i int, set []int) bool {
