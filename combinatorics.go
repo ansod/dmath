@@ -14,6 +14,7 @@ func Factorial(n int64) *big.Int {
     return x.MulRange(1, n)
 }
 
+// Calculates C(n,k) (n choose k)
 func Combination(n, k int64) *big.Int {
     x := big.NewInt(1)
     y := big.NewInt(1)
@@ -21,6 +22,7 @@ func Combination(n, k int64) *big.Int {
     return x.Div(Factorial(n), y.Mul(Factorial(k), Factorial(n-k)))
 }
 
+// Calculates P(n,k)
 func Permutation(n, k int64) *big.Int {
     x := big.NewInt(1)
 
